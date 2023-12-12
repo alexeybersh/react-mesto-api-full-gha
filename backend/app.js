@@ -11,7 +11,7 @@ const { userValidateAuth } = require('./middlewares/userValidate');
 const { errorHandler } = require('./middlewares/error-handler');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
-const { PORT = 3000, MONGO_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
+const { PORT = 3001, MONGO_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 
 const app = express();
 
@@ -36,11 +36,11 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(requestLogger);
 
-app.post('/api/signin', userValidateAuth, login);
+app.post('/signin', userValidateAuth, login);
 
-app.post('/api/signup', userValidateAuth, createUser);
+app.post('/signup', userValidateAuth, createUser);
 
-app.use('/api', router);
+app.use(router);
 
 app.use(errorLogger);
 
