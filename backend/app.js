@@ -23,13 +23,12 @@ app.use(
 );
 
 app.use(helmet());
+app.use(cors());
 
 connect(MONGO_URL);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-app.use(cors());
 
 app.use(requestLogger);
 
