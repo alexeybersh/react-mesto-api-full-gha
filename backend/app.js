@@ -15,10 +15,7 @@ const { PORT = 3001, MONGO_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process
 
 const app = express();
 
-app.use(cors({
-  origin: ['http://mesto.balex.nomoredomainsmonster.ru/', 'http://www.mesto.balex.nomoredomainsmonster.ru/'],
-  credentials: true,
-}));
+app.use(cors());
 
 app.use(
   rateLimit({
