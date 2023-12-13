@@ -47,14 +47,14 @@ export default function Header({email,isEntryOrRegister,isLoggedIn,children,onSi
       <div className='header__container'>  
         {isLoggedIn && <div className='header__navbar' id="mobileNav" >
           <p className='header__text-email'>{email}</p>
-          <Link to='/react-mesto-auth/sign-in' replace className='header__text_color' onClick={onSignOut}>Выйти</Link>
+          <Link to='/sign-in' replace className='header__text_color' onClick={onSignOut}>Выйти</Link>
         </div>}
         <div className='header_container-logo'>  
           <div className="header__logo"></div>
           {!isLoggedIn && (
           <>
-          {isEntryOrRegister? <Link to='/react-mesto-auth/sign-in' replace className='header__text'>Войти</Link>:
-          <Link to='/react-mesto-auth/sign-up' replace className='header__text'>Регистрация</Link>}
+          {isEntryOrRegister? <Link to='/sign-in' replace className='header__text'>Войти</Link>:
+          <Link to='/sign-up' replace className='header__text'>Регистрация</Link>}
           </>
           )}        
           {isLoggedIn && (
@@ -67,7 +67,7 @@ export default function Header({email,isEntryOrRegister,isLoggedIn,children,onSi
             <button type='button' className="header__close-button" id="burger" onClick={handleNavBarClose}>
             </button>}
             <p className='header__text-email' id="nav">{email}
-              <Link to='/react-mesto-auth/sign-in' replace className='header__text_color' onClick={onSignOut}>Выйти</Link>
+              <Link to='/sign-in' replace className='header__text_color' onClick={onSignOut}>Выйти</Link>
             </p>
           </>)}
         </div>

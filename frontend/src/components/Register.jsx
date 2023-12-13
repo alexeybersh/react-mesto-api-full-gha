@@ -1,4 +1,4 @@
-import{ Link, useNavigate } from 'react-router-dom'
+import{ Link } from 'react-router-dom'
 import Header from './Header'
 import { useForm } from '../hooks/useForm' 
 
@@ -39,7 +39,7 @@ export default function Register({onRegister}) {
           <button className="login__save-button" type="submit">
             Зарегистрироваться
           </button>
-          <Link to='/react-mesto-auth/sign-in' replace className='login__text'>Уже зарегистрированы? Войти</Link>
+          <Link to='/sign-in' replace className='login__text'>Уже зарегистрированы? Войти</Link>
         </form>
       </main>
     </>
