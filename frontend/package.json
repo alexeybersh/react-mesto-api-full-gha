@@ -1,7 +1,7 @@
 {
   "name": "react-mesto-auth",
   "private": true,
-  "homepage": "https://alexeybersh.github.io/react-mesto-auth",
+  "homepage": "https://alexeybersh.github.io/react-mesto-api-full-gha",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -10,7 +10,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "npm run build && scp -r ./build/* balexworks@158.160.120.22:/home/react-mesto-auth/react-mesto-auth"
+    "deploy": "npm run build && scp -r ./dist/* balexworks@158.160.120.22:/home/balexworks/react-mesto-api-full-gha/frontend"
   },
   "dependencies": {
     "react": "^18.2.0",

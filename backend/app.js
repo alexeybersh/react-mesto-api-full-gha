@@ -1,7 +1,7 @@
 const express = require('express');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
-// const cors = require('cors');
+const cors = require('cors');
 
 const { errors } = require('celebrate');
 const { connect } = require('mongoose');
@@ -15,10 +15,10 @@ const { PORT = 3001, MONGO_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process
 
 const app = express();
 
-// app.use(cors({
-//   origin: ['http://mesto.balex.nomoredomainsmonster.ru/'],
-//   credentials: true,
-// }));
+app.use(cors({
+  origin: ['http://mesto.balex.nomoredomainsmonster.ru/', 'http://www.mesto.balex.nomoredomainsmonster.ru/'],
+  credentials: true,
+}));
 
 app.use(
   rateLimit({
