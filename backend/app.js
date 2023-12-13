@@ -17,7 +17,6 @@ const app = express();
 
 app.use(
   rateLimit({
-    windowMs: 60 * 1000,
     max: 100,
   }),
 );
