@@ -25,7 +25,7 @@ app.use(
 app.use(helmet());
 
 app.use(cors({
-  origin: ['https://mesto.balex.nomoredomainsmonster.ru/', 'https://www.mesto.balex.nomoredomainsmonster.ru/', 'https://mesto.balex.nomoredomainsmonster.ru/', 'https://www.mesto.balex.nomoredomainsmonster.ru/'],
+  origin: ['http://mesto.balex.nomoredomainsmonster.ru/', 'http://www.mesto.balex.nomoredomainsmonster.ru/', 'https://mesto.balex.nomoredomainsmonster.ru/', 'https://www.mesto.balex.nomoredomainsmonster.ru/'],
   credentials: true,
 }));
 
