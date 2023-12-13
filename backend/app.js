@@ -23,7 +23,11 @@ app.use(
 );
 
 app.use(helmet());
-app.use(cors());
+
+app.use(cors({
+  origin: ['https://mesto.balex.nomoredomainsmonster.ru/', 'https://www.mesto.balex.nomoredomainsmonster.ru/', 'https://mesto.balex.nomoredomainsmonster.ru/', 'https://www.mesto.balex.nomoredomainsmonster.ru/'],
+  credentials: true,
+}));
 
 connect(MONGO_URL);
 
