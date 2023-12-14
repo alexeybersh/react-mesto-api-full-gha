@@ -1,7 +1,6 @@
 const express = require('express');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
-const { cors } = require('./middlewares/cors');
 
 const { errors } = require('celebrate');
 const { connect } = require('mongoose');
@@ -10,6 +9,7 @@ const { createUser, login } = require('./controllers/users');
 const { userValidateAuth } = require('./middlewares/userValidate');
 const { errorHandler } = require('./middlewares/error-handler');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const { cors } = require('./middlewares/cors');
 
 const { PORT = 3001, MONGO_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 
@@ -28,7 +28,7 @@ app.use(helmet({ crossOriginResourcePolicy: false }));
 connect(MONGO_URL);
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.urlencoded({ extended: true }));
 
 app.use(requestLogger);
 
