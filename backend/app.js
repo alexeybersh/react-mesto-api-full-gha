@@ -16,10 +16,6 @@ const { PORT = 3001, MONGO_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process
 
 const app = express();
 
-app.use(requestLogger);
-
-app.use(cors);
-
 app.use(
   rateLimit({
     max: 100,
@@ -32,6 +28,10 @@ connect(MONGO_URL);
 
 app.use(express.json());
 // app.use(express.urlencoded({ extended: true }));
+
+app.use(requestLogger);
+
+app.use(cors);
 
 app.post('/signin', userValidateAuth, login);
 
