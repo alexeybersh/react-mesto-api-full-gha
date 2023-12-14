@@ -1,7 +1,7 @@
 const express = require('express');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
-const cors = require('cors');
+const { cors } = require('./middlewares/cors');
 
 const { errors } = require('celebrate');
 const { connect } = require('mongoose');
@@ -15,9 +15,7 @@ const { PORT = 3001, MONGO_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process
 
 const app = express();
 
-app.use(cors({
-  origin: 'https://localhost:3001'
-}));
+app.use(cors);
 
 app.use(
   rateLimit({

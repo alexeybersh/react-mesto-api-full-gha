@@ -136,6 +136,7 @@ export default function App() {
   // Эффект для получения по апи информации о юзере и массив картинок
   useEffect(() => {
     if (isLoggedIn){
+      api.getContent(localStorage.getItem('isLoggenIn'))
       Promise.all([api.getUserInfo(), api.getAllCards()])
       .then(([userData, allCards]) => {
         setCurrentUser(userData);
