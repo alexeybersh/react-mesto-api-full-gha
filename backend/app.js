@@ -15,14 +15,7 @@ const { PORT = 3001, MONGO_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process
 
 const app = express();
 
-app.use(cors());
-
-// app.use(cors({
-//     origin: '*'
-//     // "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
-//     // "preflightContinue": false,
-//     // "optionsSuccessStatus": 204
-// }));
+app.options("*", cors());
 
 app.use(
   rateLimit({
@@ -30,12 +23,7 @@ app.use(
   }),
 );
 
-app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
-
-// app.use(cors({
-//   origin: ['http://mesto.balex.nomoredomainsmonster.ru/', 'http://www.mesto.balex.nomoredomainsmonster.ru/', 'https://mesto.balex.nomoredomainsmonster.ru/', 'https://www.mesto.balex.nomoredomainsmonster.ru/'],
-//   credentials: true,
-// }));
+app.use(helmet({ crossOriginResourcePolicy: false }));
 
 connect(MONGO_URL);
 
