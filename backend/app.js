@@ -17,7 +17,7 @@ const { PORT = 3001, MONGO_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process
 const app = express();
 
 app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
 app.use(requestLogger);
 
