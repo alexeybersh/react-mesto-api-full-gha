@@ -31,6 +31,7 @@ class Auth {
       headers: this._headers,  
       method: 'POST',
       credentials: "include",
+      mode: 'no-cors',
       body: JSON.stringify({
         email: email,
         password: password
