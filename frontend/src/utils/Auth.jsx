@@ -29,8 +29,8 @@ class Auth {
   authorize(email, password){
     return this._request(`${this._url}/signin`, {
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
+        Accept: 'application/json',
+        'Content-Type': 'application/json;charset=utf-8',
       },
       method: 'POST',
       credentials: "include",
