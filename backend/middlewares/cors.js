@@ -5,14 +5,13 @@ const allowedCors = [
   'http://localhost:3001',
   'https://mesto.balex.nomoredomainsmonster.ru',
   'http://mesto.balex.nomoredomainsmonster.ru',
-  'https://api.mesto.balex.nomoredomainsmonster.ru',
-  'http://api.mesto.balex.nomoredomainsmonster.ru',
+  'chrome-extension://eipdnjedkpcnlmmdfdkgfpljanehloah',
 ];
 
 module.exports.cors = (req, res, next) => {
   const { origin } = req.headers;
   const { method } = req;
-  const requestHeaders = req.headers['access-control-request-headers'];
+  const requestHeaders = req.headers['Access-control-request-headers'];
   console.log(origin, method, requestHeaders, req.headers);
 
   if (allowedCors.includes(origin)) {
@@ -33,4 +32,3 @@ module.exports.cors = (req, res, next) => {
 
   return true;
 };
-
