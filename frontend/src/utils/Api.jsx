@@ -15,6 +15,13 @@ class Api {
     return fetch(url, options).then(this._getResponse)
   }
 
+  authorize(jwt) {
+    this._headers = {
+      ...this._headers,
+      authorization: `Bearer ${jwt}`,
+    };
+  }
+
   getUserInfo(){
     return this._request(`${this._url}/users/me`, {headers: this._headers})
   }
@@ -76,7 +83,10 @@ class Api {
 }
 
 export const api = new Api({
-    url: 'https://api.mesto.balex.nomoredomainsmonster.ru',
+  // url: 'https://api.mesto.balex.nomoredomainsmonster.ru',
+  url: 'http://localhost:3001',
     headers: {
+      'Accept': 'application/json',
       "Content-Type": "application/json",
     }})
+    

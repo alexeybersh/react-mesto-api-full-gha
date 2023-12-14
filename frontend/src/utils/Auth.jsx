@@ -30,7 +30,6 @@ class Auth {
     return this._request(`${this._url}/signin`, {
       headers: this._headers,
       method: 'POST',
-      credentials: "include",
       body: JSON.stringify({
         email: email,
         password: password
@@ -40,7 +39,7 @@ class Auth {
 
   getContent(token){
     return this._request(`${this._url}/users/me`,{
-      method: 'GET',    
+      method: 'GET',
       headers:{
       "Accept": "application/json",
       "Content-Type": "application/json",
@@ -50,7 +49,8 @@ class Auth {
 }
 
 export const authApi = new Auth({
-  url: 'https://api.mesto.balex.nomoredomainsmonster.ru',
+  // url: 'https://api.mesto.balex.nomoredomainsmonster.ru',
+  url: 'http://localhost:3001',
   headers: {
     'Accept': 'application/json',
     "Content-Type": "application/json",

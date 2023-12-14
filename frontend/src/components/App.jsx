@@ -127,7 +127,6 @@ export default function App() {
   // Ручка для удаления карточки
   function handleCardDelete(card){
     function makeRequest() {
-      console.log(cards);
       return api.deleteCard(card._id).then(() => setCards(cards.filter((c) => c._id !== card._id)))
     }
     handleSubmit(makeRequest)
@@ -136,11 +135,11 @@ export default function App() {
   // Эффект для получения по апи информации о юзере и массив картинок
   useEffect(() => {
     if (isLoggedIn){
-      api.getContent(localStorage.getItem('isLoggenIn'))
+      api.authorize(localStorage.getItem('jwt'));
       Promise.all([api.getUserInfo(), api.getAllCards()])
       .then(([userData, allCards]) => {
         setCurrentUser(userData);
-        setCards(allCards.reverse());
+        setCards(allCards);
       })
 
       .catch(console.error)
