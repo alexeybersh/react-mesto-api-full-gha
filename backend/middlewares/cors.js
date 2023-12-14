@@ -16,7 +16,7 @@ module.exports.cors = (req, res, next) => {
 
   if (allowedCors.includes(origin)) {
     res.header('Access-Control-Allow-Origin', origin);
-
+    res.header('X-frame-options', 'AllowFrom');
     res.header('Access-Control-Allow-Credentials', 'true');
   }
 
