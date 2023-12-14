@@ -1,8 +1,7 @@
 const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
-const { requestLogger } = require('../middlewares/logger');
-const { Router } = require('express');
 
 const allowedCors = [
+  '*',
   'http://localhost:3000',
   'http://localhost:3001',
   'https://mesto.balex.nomoredomainsmonster.ru/',
@@ -14,7 +13,6 @@ module.exports.cors = (req, res, next) => {
   const { method } = req;
   const requestHeaders = req.headers['Access-control-request-headers'];
   console.log(origin, method, requestHeaders, req.headers);
-  Router.use(requestLogger);
 
   if (allowedCors.includes(origin)) {
     res.header('Access-Control-Allow-Origin', origin);
