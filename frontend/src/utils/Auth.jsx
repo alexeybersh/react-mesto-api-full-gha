@@ -28,10 +28,7 @@ class Auth {
 
   authorize(email, password){
     return this._request(`${this._url}/signin`, {
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json;charset=utf-8',
-      },
+      headers: this._headers,
       method: 'POST',
       credentials: "include",
       body: JSON.stringify({
@@ -58,5 +55,3 @@ export const authApi = new Auth({
     'Accept': 'application/json',
     "Content-Type": "application/json",
   }})
-
-  // console.log("<<");
