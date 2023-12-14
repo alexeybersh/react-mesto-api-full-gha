@@ -34,7 +34,6 @@ class Auth {
       },
       method: 'POST',
       credentials: "include",
-      mode: 'no-cors',
       body: JSON.stringify({
         email: email,
         password: password
