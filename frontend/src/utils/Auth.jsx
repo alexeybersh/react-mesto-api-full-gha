@@ -30,7 +30,6 @@ class Auth {
     return this._request(`${this._url}/signin`, {
       headers: this._headers,  
       method: 'POST',
-      mode: "no-cors",
       credentials: "include",
       body: JSON.stringify({
         email: email,
