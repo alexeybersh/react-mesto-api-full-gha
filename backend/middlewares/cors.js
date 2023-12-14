@@ -4,7 +4,7 @@ const allowedCors = [
   '*',
   'http://localhost:3000',
   'http://localhost:3001',
-  'https://mesto.balex.nomoredomainsmonster.ru/',
+  'https://mesto.balex.nomoredomainsmonster.ru',
   'http://mesto.balex.nomoredomainsmonster.ru',
 ];
 
