@@ -5,7 +5,6 @@ const allowedCors = [
   'http://localhost:3001',
   'https://mesto.balex.nomoredomainsmonster.ru',
   'http://mesto.balex.nomoredomainsmonster.ru',
-  'chrome-extension://eipdnjedkpcnlmmdfdkgfpljanehloah',
 ];
 
 module.exports.cors = (req, res, next) => {
