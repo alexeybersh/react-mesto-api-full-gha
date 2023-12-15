@@ -3,7 +3,7 @@ const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
 const allowedCors = [
   'http://localhost:3000',
   'http://localhost:3001',
-  'http://localhost:5173',
+  'https://mesto.balex.nomoredomainsmonster.ru',
   'http://mesto.balex.nomoredomainsmonster.ru',
 ];
 

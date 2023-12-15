@@ -9,7 +9,7 @@ module.exports.createCard = ((req, res, next) => {
   const { name, link } = req.body;
 
   Card.create({ name, link, owner })
-    .then((card) => res.status(CREATED).send({ data: card }))
+    .then((card) => res.status(CREATED).send(card))
     .catch((error) => {
       next(errorMessage(error));
     });
@@ -17,7 +17,7 @@ module.exports.createCard = ((req, res, next) => {
 
 module.exports.getCards = ((req, res, next) => {
   Card.find({})
-    .then((cards) => res.status(STATUS_OK).send({ data: cards }))
+    .then((card) => res.status(STATUS_OK).send(card))
     .catch((error) => {
       next(errorMessage(error));
     });
@@ -43,7 +43,7 @@ module.exports.addLikes = ((req, res, next) => {
   Card.findByIdAndUpdate(req.params.id, { $addToSet: { likes: userId } }, {
     new: true,
   }).orFail()
-    .then((card) => res.status(STATUS_OK).send({ data: card }))
+    .then((card) => res.status(STATUS_OK).send(card))
     .catch((error) => {
       next(errorMessage(error));
     });
@@ -53,7 +53,7 @@ module.exports.deleteLikes = ((req, res, next) => {
   Card.findByIdAndUpdate(req.params.id, { $pull: { likes: userId } }, {
     new: true,
   }).orFail()
-    .then((card) => res.status(STATUS_OK).send({ data: card }))
+    .then((card) => res.status(STATUS_OK).send(card))
     .catch((error) => {
       next(errorMessage(error));
     });

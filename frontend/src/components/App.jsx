@@ -70,7 +70,7 @@ export default function App() {
 
   // Ручка для установки лайка
   function handleCardLike(card){
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i === currentUser._id);
 
     if (!isLiked){
     api.isLikeAdd(card._id)
@@ -103,7 +103,7 @@ export default function App() {
   // Ручка для обновления профиля
   function handleUpdateUser(newData){
     function makeRequest() {
-      return api.setUserInfo(newData).then(setCurrentUser)
+      return api.setUserInfo(newData).then((res) => {setCurrentUser(res.data)})
     }
     handleSubmit(makeRequest)
   }
@@ -111,7 +111,7 @@ export default function App() {
   // Ручка для обновления аватара
   function handleUpdateAvatar(newData){
     function makeRequest() {
-      return api.setAvatar(newData).then(setCurrentUser)
+      return api.setAvatar(newData).then((res) => {setCurrentUser(res.data)})
     }
     handleSubmit(makeRequest)
   }
@@ -132,19 +132,12 @@ export default function App() {
     handleSubmit(makeRequest)
   }
 
-  // Эффект для получения по апи информации о юзере и массив картинок
   useEffect(() => {
-    if (isLoggedIn){
-      api.authorize(localStorage.getItem('jwt'));
-      Promise.all([api.getUserInfo(), api.getAllCards()])
-      .then(([userData, allCards]) => {
-        setCurrentUser(userData);
-        setCards(allCards);
-      })
-
-      .catch(console.error)
+    const token = localStorage.getItem('jwt')
+    if(token) {    
+      auth(token)
     }
-  }, [isLoggedIn])
+  }, [])
 
   function auth(token) {
     authApi.getContent(token).then(() => {
@@ -157,12 +150,20 @@ export default function App() {
     })
   }
 
+  // Эффект для получения по апи информации о юзере и массив картинок
   useEffect(() => {
-    const token = localStorage.getItem('jwt')
-    if(token) {    
-      auth(token)
+    if (isLoggedIn){
+      api.authorize(localStorage.getItem('jwt'));
+      Promise.all([api.getUserInfo(), api.getAllCards()])
+      .then(([userData, allCards]) => {
+        setCurrentUser(userData.data);
+        setCards(allCards);
+      })
+
+      .catch(console.error)
     }
-  }, [])
+  }, [isLoggedIn])
+
   
   function handleLogin({email, password}) {
     localStorage.setItem('email', email)
