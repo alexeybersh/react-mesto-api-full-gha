@@ -54,4 +54,4 @@ export const authApi = new Auth({
   headers: {
     'Accept': 'application/json',
     "Content-Type": "application/json",
-  }})
+  }}) 
