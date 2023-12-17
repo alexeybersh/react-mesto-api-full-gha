@@ -51,7 +51,6 @@ class Auth {
 
 export const authApi = new Auth({
   url: 'https://api.mesto.balex.nomoredomainsmonster.ru',
-  // url: 'http://localhost:3001',
   headers: {
     'Accept': 'application/json',
     "Content-Type": "application/json",
