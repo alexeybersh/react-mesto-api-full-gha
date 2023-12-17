@@ -10,7 +10,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "npm run build && scp -r ./dist/* balexworks@158.160.120.22:/home/balexworks/react-mesto-api-full-gha/frontend"
+    "deploy": "npm run build && scp -r ./dist/* balexworks@84.201.135.174:/home/balexworks/react-mesto-api-full-gha/frontend"
   },
   "dependencies": {
     "react": "^18.2.0",
