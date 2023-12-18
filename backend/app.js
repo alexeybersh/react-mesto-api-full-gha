@@ -21,6 +21,8 @@ app.use(cors({
   maxAge: 30,
 }));
 
+app.use(requestLogger);
+
 app.use(
   rateLimit({
     max: 100,
@@ -33,8 +35,6 @@ connect(MONGO_URL);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-app.use(requestLogger);
 
 // app.get('/crash-test', () => {
 //   setTimeout(() => {
